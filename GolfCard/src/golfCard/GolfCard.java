@@ -160,10 +160,10 @@ public class GolfCard {
 		//Gesamt:
 		System.out.println("---------------------------------------------------------------------------");
 		System.out.println("Der C Kurs hat eine Länge von " + scoreCardArrayList.get(9).getBahnLaenge() 
-				+ " und hat ein Par von " + scoreCardArrayList.get(9).getPar());
-		System.out.println("Deine Fairwaytrefferquote liegt bei " + Bahn.getFiRPerc() + "%");
-		System.out.println("Deine Grüntrefferquote liegt bei " + Bahn.getGiRPerc() + "%");
-		System.out.println("Deine Anzahl an Putts liegt bei " + Bahn.getPuttCount());
+				+ " und hat ein Par von " + scoreCardArrayList.get(9).getPar() + " Schlägen.");
+		System.out.println("Deine Fairwaytrefferquote liegt bei " + Bahn.getFiRPerc() + "%.");
+		System.out.println("Deine Grüntrefferquote liegt bei " + Bahn.getGiRPerc() + "%.");
+		System.out.println("Deine Anzahl an Putts liegt bei " + Bahn.getPuttCount() + ".");
 		System.out.println("Dein Ergebnis zu Par ist " + (Bahn.getErgebnisUntilNow() - bahnGesamt.getPar()));
 		
 		scan.close();
