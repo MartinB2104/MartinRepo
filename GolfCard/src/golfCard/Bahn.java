@@ -19,6 +19,8 @@ public class Bahn{
 	//Gesamt Platzvorgabe bis jetzt
 	private static int parUntilNow;
 	
+	//Anzahl an Putts auf dem Grün
+	private static int puttCount;
 	//Anzahl möglicher Fairwaytreffer
 	private static int FiRMoeglichCount = 0;
 	//Anzahl Fairwaytreffer
@@ -41,6 +43,14 @@ public class Bahn{
     private static double GiRPerc = (GiRMadeCount * 100.0) / (GiRMoeglichCount * 1.0);
     //Up and Down Prozentzahl
     private static double upAndDownPerc = (upAndDownMadeCount * 1.0) / (upAndDownMoeglichCount * 1.0);
+    
+    public static int getPuttCount() {
+    	return puttCount;
+    }
+    
+    public static void setPuttCount(int putts) {
+    	puttCount += putts;
+    }
     
     public void setPar(int par) {
     	this.par = par;
@@ -65,11 +75,12 @@ public class Bahn{
     }
 
     public static int getErgebnisUntilNow() {
-    	return parUntilNow - ergebnisUntilNow;
+    	return ergebnisUntilNow;
     }
     
     public static void setErgebnisToPar(int bahnPar, int ergebnis) {
     	parUntilNow += bahnPar;
+    	ergebnisUntilNow += ergebnis;
     	ergebnisToPar += ergebnis - bahnPar;
     }
     public boolean getUpAndDownMade() {
