@@ -33,7 +33,7 @@ public class GolfCard {
 			System.out.println(bahn.toString());
 		}
 		
-		for(int i = 0; i < 9; i++) {
+		for (int i = 0; i < 9; i++) {
 
 			System.out.println("name der Bahn: " + scoreCardArrayList.get(i).getName());
 			System.out.println("Länge der Bahn: " + scoreCardArrayList.get(i).getBahnLaenge());
