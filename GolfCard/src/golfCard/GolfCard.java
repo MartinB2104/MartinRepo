@@ -42,107 +42,28 @@ public class GolfCard {
 			System.out.println("");
 			
 			if (scoreCardArrayList.get(i).getPar() != 3) {
-				boolean error = true;
-				
-				do {
-						
-					try {
-						System.out.println("Hast du das Fairway getroffen? (true or false): ");
-						scoreCardArrayList.get(i).setFiR(scan.nextBoolean());
-						error = false;
-					}
-					catch (Exception e) {
-						// TODO: handle input mismatch exception, falsche Eingabe
-						System.out.println("Gebe true oder false ein!");
-						error = true;
-						scan.next();
-					}
-				} while (error);
-				
+				scoreCardArrayList.get(i).setFiR(Tools.getBooleanFromUser("Hast du das Fairway getroffen? (true or false): "));
 				System.out.println("Deine Fairwaytreffer Prozentzahl liegt bei: " + Bahn.getFiRPerc() + "%");
 			}
 			
-			boolean error = true;
-			do {
-				try {
-					System.out.println("Hast du das Grün in regulation getroffen? (true or false): ");
-					scoreCardArrayList.get(i).hadGiR(scan.nextBoolean());
-					error = false;
-				}
-				catch (Exception e) {
-					//handle input mismatch exception, falsche Eingabe
-					System.out.println("Gebe true oder false ein!");
-					error = true;
-					scan.next();
-				}
-			} while (error);
-				
+		
+			scoreCardArrayList.get(i).hadGiR(Tools.getBooleanFromUser("Hast du das Grün in regulation getroffen? (true or false): "));
 			System.out.println("Deine Grüntreffer Prozentzahl liegt bei: " + Bahn.getGiRPerc() + "%");
 			
 			if (!scoreCardArrayList.get(i).getGiR()) {
 			
-			do {
-				try {
-					System.out.println("Hattest du ein up and down? (true or false): ");
-					scoreCardArrayList.get(i).setHadUpAndDown(scan.nextBoolean());;
-					error = false;
-				}
-				catch (Exception e) {
-					//handle input mismatch exception, falsche Eingabe
-					System.out.println("Gebe true oder false ein!");
-					error = true;
-					scan.next();
-				}
-			} while (error);
+				scoreCardArrayList.get(i).setHadUpAndDown(Tools.getBooleanFromUser("Hattest du ein up and down? (true or false): "));
 			
 				if (scoreCardArrayList.get(i).getHadUpAndDown()) {
-					do { 
-						try {
-							System.out.println("Hast du das up and down gemacht? (true or false): ");
-							scoreCardArrayList.get(i).hadUpAndDown(scan.nextBoolean());
-							error = false;
-						}
-						catch (Exception e) {
-							//handle input mismatch exception, falsche Eingabe
-							System.out.println("Gebe true oder false ein!");
-							error = true;
-							scan.next();
-						}
-					} while (error);
-							
-					System.out.println("Deine Up and Down Prozentzahl liegt bei: " + Bahn.getUpAndDownPerc() + "%");
+						System.out.println("Hast du das up and down gemacht? (true or false): ");
+						scoreCardArrayList.get(i).hadUpAndDown(Tools.getBooleanFromUser("Hast du das up and down gemacht? (true or false): "));
+						System.out.println("Deine Up and Down Prozentzahl liegt bei: " + Bahn.getUpAndDownPerc() + "%");
 				}
 			}
 			
-			do { 
-				try {
-					System.out.println("Wie viele Putts hast du gemacht?");
-					Bahn.setPuttCount(scan.nextInt());
-					error = false;
-				}
-				catch (Exception e) {
-					//handle input mismatch exception, falsche Eingabe
-					System.out.println("Gebe eine Zahl ein!");
-					error = true;
-					scan.next();
-				}
-			} while (error);
-			
+			Bahn.setPuttCount(Tools.getIntegerFromUser("Wie viele Putts hast du gemacht?"));
 			System.out.println("Du hast bisher " + Bahn.getPuttCount() + " Putts gemacht");
-			
-			do {
-				try {
-					System.out.println("Was hast du gespielt?");
-					scoreCardArrayList.get(i).setErgebnis(scan.nextInt());
-					error = false;
-				} catch (Exception e) {
-					//handle input mismatch exception, falsche Eingabe
-					System.out.println("Gebe eine Zahl ein!");
-					error = true;
-					scan.next();
-				}
-			} while (error);
-			
+			scoreCardArrayList.get(i).setErgebnis(Tools.getIntegerFromUser("Was hast du gespielt?"));
 			Bahn.setErgebnisToPar(scoreCardArrayList.get(i).getPar(), scoreCardArrayList.get(i).getErgebnis());
 			
 			if (scoreCardArrayList.get(i).getErgebnisToPar() > 0)
