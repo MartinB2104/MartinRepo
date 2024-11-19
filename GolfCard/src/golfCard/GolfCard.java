@@ -55,7 +55,6 @@ public class GolfCard {
 				scoreCardArrayList.get(i).setHadUpAndDown(Tools.getBooleanFromUser("Hattest du ein up and down? (true or false): "));
 			
 				if (scoreCardArrayList.get(i).getHadUpAndDown()) {
-						System.out.println("Hast du das up and down gemacht? (true or false): ");
 						scoreCardArrayList.get(i).hadUpAndDown(Tools.getBooleanFromUser("Hast du das up and down gemacht? (true or false): "));
 						System.out.println("Deine Up and Down Prozentzahl liegt bei: " + Bahn.getUpAndDownPerc() + "%");
 				}
@@ -85,7 +84,13 @@ public class GolfCard {
 		System.out.println("Deine Fairwaytrefferquote liegt bei " + Bahn.getFiRPerc() + "%.");
 		System.out.println("Deine Grüntrefferquote liegt bei " + Bahn.getGiRPerc() + "%.");
 		System.out.println("Deine Anzahl an Putts liegt bei " + Bahn.getPuttCount() + ".");
-		System.out.println("Dein Ergebnis zu Par ist " + (Bahn.getErgebnisUntilNow() - bahnGesamt.getPar()));
+		
+		if (Bahn.getErgebnisUntilNow() - bahnGesamt.getPar() > 0)
+			System.out.println("Dein Ergebnis zu Par ist +" + (Bahn.getErgebnisUntilNow() - bahnGesamt.getPar()));
+		else if (Bahn.getErgebnisUntilNow() - bahnGesamt.getPar() < 0) 
+			System.out.println("Dein Ergebnis zu Par ist -" + (Bahn.getErgebnisUntilNow() - bahnGesamt.getPar()));
+		else 
+			System.out.println("Dein Ergebnis zu Par ist even Par");
 		
 		scan.close();
 	}
