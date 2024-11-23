@@ -34,10 +34,10 @@ public class GolfCard {
 		}
 		
 		for (int i = 0; i < 9; i++) {
-
-			System.out.println("name der Bahn: " + scoreCardArrayList.get(i).getName());
+			System.out.println("----------------------------------------------------------------");
+			System.out.println("Name der Bahn: " + scoreCardArrayList.get(i).getName());
 			System.out.println("Länge der Bahn: " + scoreCardArrayList.get(i).getBahnLaenge());
-			System.out.println("bahn.par: " + scoreCardArrayList.get(i).getPar());
+			System.out.println("Bahn Par ist: " + scoreCardArrayList.get(i).getPar());
 			System.out.println("Willkommen auf Bahn " + (i + 1) + " --------------------");
 			System.out.println("");
 			
@@ -53,8 +53,14 @@ public class GolfCard {
 			if (!scoreCardArrayList.get(i).getGiR()) {
 			
 				scoreCardArrayList.get(i).setHadUpAndDown(Tools.getBooleanFromUser("Hattest du ein up and down? (true or false): "));
-			
-				if (scoreCardArrayList.get(i).getHadUpAndDown()) {
+				
+				scoreCardArrayList.get(i).setHadBunkerShot(Tools.getBooleanFromUser("War es ein up and down Versuch aus dem Bunker? (true or false): "));
+				if (scoreCardArrayList.get(i).getHadBunkerShot()) {
+					scoreCardArrayList.get(i).hadBunkerShot(Tools.getBooleanFromUser("Hast du das Bunker up and down gemacht? (true or false): "));
+					System.out.println("Deine Bunker Up and Down Prozentzahl liegt bei: " + Bahn.getBunkerPerc() + "%");
+				}
+					
+				if (scoreCardArrayList.get(i).getHadUpAndDown() & !scoreCardArrayList.get(i).getHadBunkerShot()) {
 						scoreCardArrayList.get(i).hadUpAndDown(Tools.getBooleanFromUser("Hast du das up and down gemacht? (true or false): "));
 						System.out.println("Deine Up and Down Prozentzahl liegt bei: " + Bahn.getUpAndDownPerc() + "%");
 				}

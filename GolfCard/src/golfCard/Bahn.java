@@ -11,6 +11,9 @@ public class Bahn{
 	private boolean hadUpAndDown = false;
 	//Das Up and Down gemacht?
 	private boolean upAndDownMade = false;
+	//War das Up and Down ein Bunkerschlag?
+	private boolean hadBunkerShot = false;
+	private boolean bunkerShotMade = false;
 	
 	//Wie man zur Vorgabe vom Platz steht
 	private static int ergebnisToPar;
@@ -33,6 +36,10 @@ public class Bahn{
     private static int upAndDownMoeglichCount = 0;
     //Anzahl gemachter Up and Down's
     private static int upAndDownMadeCount = 0;
+    //Anzahl möglicher Bunkerschläge up and down's 
+    private static int bunkerShotMoeglichCount = 0;
+    //Anzahl gemachter Bunker Up and Down's
+    private static int bunkerShotMadeCount = 0;
     //Fairway in Regulation, also ob man den Abschlag aufs Fairway geschlagen hat
     private boolean FiR;
     //Fairway Treffer Prozentzahl
@@ -43,8 +50,38 @@ public class Bahn{
     private static double GiRPerc = (GiRMadeCount * 100.0) / (GiRMoeglichCount * 1.0);
     //Up and Down Prozentzahl
     private static double upAndDownPerc = (upAndDownMadeCount * 1.0) / (upAndDownMoeglichCount * 1.0);
+    //Bunker up and down Prozentzahl
+    private static double bunkerPerc = (bunkerShotMadeCount * 1.0) / (bunkerShotMoeglichCount * 1.0);
     
-    public static int getPuttCount() {
+    public static double getBunkerPerc() {
+		return bunkerPerc;
+	}
+
+	public static void setBunkerPerc() {
+		bunkerPerc = (bunkerShotMadeCount * 1.0) / (bunkerShotMoeglichCount * 1.0);
+	}
+
+	public void setHadBunkerShot(boolean hadBunkerShot) {
+		this.hadBunkerShot = hadBunkerShot ;
+	}
+	
+	public boolean getHadBunkerShot() {
+		return hadBunkerShot;
+	}
+	
+	public void hadBunkerShot(boolean bunkerShotMade){
+		this.bunkerShotMade = bunkerShotMade;
+		if(bunkerShotMade) {
+			bunkerShotMoeglichCount++;
+			bunkerShotMadeCount++;
+			Bahn.setBunkerPerc();
+		}else {
+			bunkerShotMoeglichCount++;
+			Bahn.setBunkerPerc();
+		}
+	}
+	
+	public static int getPuttCount() {
     	return puttCount;
     }
     
