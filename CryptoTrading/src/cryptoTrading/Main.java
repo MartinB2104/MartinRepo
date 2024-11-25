@@ -4,6 +4,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		Trade trade = new Trade();
+		//Trade Attribute:
 		trade.setCoinName(Tools.getStringFromUser("Welchen Coin hast du gekauft?"));
 		trade.setBuyPrice(Tools.getDoubleFromUser("Bei wieviel eingekauft? (in Dollar)(x,yz)"));
 		trade.setMarge(Tools.getDoubleFromUser("Mit wie viel Geld bist du im Trade? (in Dollar)(x,yz)"));
