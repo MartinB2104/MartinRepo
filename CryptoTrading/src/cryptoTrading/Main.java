@@ -1,0 +1,34 @@
+package cryptoTrading;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Trade trade = new Trade();
+		trade.setCoinName(Tools.getStringFromUser("Welchen Coin hast du gekauft?"));
+		trade.setBuyPrice(Tools.getDoubleFromUser("Bei wieviel eingekauft? (in Dollar)"));
+		trade.setMarge(Tools.getDoubleFromUser("Mit wie viel Geld bist du im Trade? (in Dollar)"));
+		trade.setIsLong(Tools.getBooleanFromUser("Ist es eine Long Position? (true or false): "));
+		trade.setpAndL(Tools.getDoubleFromUser("Wie war der profit and loss?"));
+		trade.setROE(Tools.getDoubleFromUser("Wie war der return on invest? In Dezimal bzw. Prozent"));
+		trade.setWin(Tools.getBooleanFromUser("War der Trade im Plus? (true or false): "));
+	
+		System.out.println("----------------------");
+		System.out.println("Der Trade von Coin " + trade.getCoinName() + " verlief folgendermaßen: ");
+		System.out.println("Du hast bei " + trade.getBuyPrice() + " eingekauft.");
+		System.out.println("Du warst mit " + trade.getMarge() + "$ im Trade drin.");
+		
+		if (trade.getIsLong())
+			System.out.println("Es war eine Longposition.");
+		else 
+			System.out.println("Es war eine Shortposition.");
+		
+		if (trade.getWin())
+			System.out.println("Du hast " + trade.getPAndL() + "$ Profit gemacht!");
+		else 
+			System.out.println("Du hast " + trade.getPAndL() + "$ minus gemacht.");
+		
+		System.out.println("Dein return on investment war bei " + trade.getROE() + "%");
+
+	}
+
+}
