@@ -5,11 +5,11 @@ public class Main {
 	public static void main(String[] args) {
 		Trade trade = new Trade();
 		trade.setCoinName(Tools.getStringFromUser("Welchen Coin hast du gekauft?"));
-		trade.setBuyPrice(Tools.getDoubleFromUser("Bei wieviel eingekauft? (in Dollar)"));
-		trade.setMarge(Tools.getDoubleFromUser("Mit wie viel Geld bist du im Trade? (in Dollar)"));
+		trade.setBuyPrice(Tools.getDoubleFromUser("Bei wieviel eingekauft? (in Dollar)(x,yz)"));
+		trade.setMarge(Tools.getDoubleFromUser("Mit wie viel Geld bist du im Trade? (in Dollar)(x,yz)"));
 		trade.setIsLong(Tools.getBooleanFromUser("Ist es eine Long Position? (true or false): "));
-		trade.setpAndL(Tools.getDoubleFromUser("Wie war der profit and loss?"));
-		trade.setROE(Tools.getDoubleFromUser("Wie war der return on invest? In Dezimal bzw. Prozent"));
+		trade.setpAndL(Tools.getDoubleFromUser("Wie war der profit and loss? (x,yz)"));
+		trade.setROE(Tools.getDoubleFromUser("Wie war der return on invest? In Dezimal bzw. Prozent (x,yz)"));
 		trade.setWin(Tools.getBooleanFromUser("War der Trade im Plus? (true or false): "));
 	
 		System.out.println("----------------------");
