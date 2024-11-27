@@ -1,8 +1,12 @@
 package cryptoTrading;
 
+import java.io.IOException;
+import java.util.ArrayList;
+
 public class Main {
 
 	public static void main(String[] args) {
+		ArrayList<Trade> list = new ArrayList<Trade>();
 		Trade trade = new Trade();
 		//Trade Attribute:
 		trade.setCoinName(Tools.getStringFromUser("Welchen Coin hast du gekauft?"));
@@ -12,7 +16,7 @@ public class Main {
 		trade.setpAndL(Tools.getDoubleFromUser("Wie war der profit and loss? (x,yz)"));
 		trade.setROE(Tools.getDoubleFromUser("Wie war der return on invest? In Dezimal bzw. Prozent (x,yz)"));
 		trade.setWin(Tools.getBooleanFromUser("War der Trade im Plus? (true or false): "));
-	
+		list.add(trade);
 		System.out.println("----------------------");
 		System.out.println("Der Trade von Coin " + trade.getCoinName() + " verlief folgendermaßen: ");
 		System.out.println("Du hast bei " + trade.getBuyPrice() + " eingekauft.");
@@ -30,6 +34,14 @@ public class Main {
 		
 		System.out.println("Dein return on investment war bei " + trade.getROE() + "%");
 		System.out.println("----------------------");
+        
+		// Path to the existing JSON file
+		String jsonLocation = "C:\\Users\\marti\\git\\MartinRepo\\CryptoTrading\\src\\cryptoTrading\\trades.json";
 		
+		try {
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
 	}
 }
