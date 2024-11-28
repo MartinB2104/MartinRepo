@@ -1,2 +1,3 @@
 module GolfCard {
+    exports golfCard;
 }

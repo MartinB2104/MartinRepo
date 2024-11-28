@@ -14,14 +14,14 @@ public class Bahn{
 	//War das Up and Down ein Bunkerschlag?
 	private boolean hadBunkerShot = false;
 	private boolean bunkerShotMade = false;
-	
+
 	//Wie man zur Vorgabe vom Platz steht
 	private static int ergebnisToPar;
 	//Anzahl an Schlägen bis jetzt
 	private static int ergebnisUntilNow;
 	//Gesamt Platzvorgabe bis jetzt
 	private static int parUntilNow;
-	
+
 	//Anzahl an Putts auf dem Grün
 	private static int puttCount;
 	//Anzahl möglicher Fairwaytreffer
@@ -137,31 +137,27 @@ public class Bahn{
     public boolean getFiR() {
     	return FiR;
     }
-    
-    public void setFiR(boolean FiR) {
-    	this.FiR = FiR;
-    	if(FiR) {
-    		FiRMoeglichCount++;
-    		FiRCount++;
-    		Bahn.setFiRPerc();
-    	}else {
-    		FiRMoeglichCount++;
-    		Bahn.setFiRPerc();
-    	}
-    }
+
+	public void setFiR(boolean FiR) {
+		this.FiR = FiR;
+		if (FiR) {
+			FiRMoeglichCount++;
+			FiRCount++;
+		} else {
+			FiRMoeglichCount++;
+		}
+		updateFiRPerc();
+	}
     
     public static double getFiRPerc() {
-    	Bahn.setFiRPerc();
     	return FiRPerc;
     }
-    
-    public static void setFiRPerc() {
-    	if(FiRCount == 0)
-    		FiRPerc = 0;
-    	else {
-    		FiRPerc = (FiRCount * 100.0) / (FiRMoeglichCount * 1.0);
+
+	private void updateFiRPerc() {
+		if (FiRMoeglichCount > 0) {
+			FiRPerc = (FiRCount * 100.0) / FiRMoeglichCount;
 		}
-    }
+	}
     
     public boolean getGiR() {
     	return GiR;
@@ -204,7 +200,13 @@ public class Bahn{
 			Bahn.setGiRPerc();
 		}
 	}
-	
+
+	private void updateGiRPerc() {
+		if (GiRMoeglichCount > 0) {
+			GiRPerc = (GiRMadeCount * 100.0) / GiRMoeglichCount;
+		}
+	}
+
 	public void setHadUpAndDown(boolean hadUpAndDown) {
 		this.hadUpAndDown = hadUpAndDown ;
 	}
@@ -224,9 +226,19 @@ public class Bahn{
 			Bahn.setUpAndDownPerc();
 		}
 	}
-	
+
+	public void setGiR(boolean GiR) {
+		this.GiR = GiR;
+		if (GiR) {
+			GiRMoeglichCount++;
+			GiRMadeCount++;
+		} else {
+			GiRMoeglichCount++;
+		}
+		updateGiRPerc();
+	}
+
 	public String toString() {
 		return name + ", " + bahnLaenge + ", " + par;
 	}
-	
 }

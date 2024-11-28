@@ -4,101 +4,93 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class GolfCard {
-
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
-		Bahn bahn1 = new Bahn("bahn1", 495, 5);
-		Bahn bahn2 = new Bahn("bahn2", 159, 3);
-		Bahn bahn3 = new Bahn("bahn3", 363, 4);
-		Bahn bahn4 = new Bahn("bahn4", 458, 5);
-		Bahn bahn5 = new Bahn("bahn5", 140, 3);
-		Bahn bahn6 = new Bahn("bahn6", 455, 5);
-		Bahn bahn7 = new Bahn("bahn7", 370, 4);
-		Bahn bahn8 = new Bahn("bahn8",  99, 3);
-		Bahn bahn9 = new Bahn("bahn9", 360, 4);
-		Bahn bahnGesamt = new Bahn("gesamt" , 2899, 36);
-		ArrayList<Bahn> scoreCardArrayList = new ArrayList<Bahn>();
-		scoreCardArrayList.add(bahn1);
-		scoreCardArrayList.add(bahn2);
-		scoreCardArrayList.add(bahn3);
-		scoreCardArrayList.add(bahn4);
-		scoreCardArrayList.add(bahn5);
-		scoreCardArrayList.add(bahn6);
-		scoreCardArrayList.add(bahn7);
-		scoreCardArrayList.add(bahn8);
-		scoreCardArrayList.add(bahn9);
-		scoreCardArrayList.add(bahnGesamt);
-		
+
+		// List of Bahn objects representing holes
+		ArrayList<Bahn> scoreCardArrayList = new ArrayList<>();
+
+		// Creating Bahn objects for each hole
+		scoreCardArrayList.add(new Bahn("Bahn1", 495, 5));
+		scoreCardArrayList.add(new Bahn("Bahn2", 159, 3));
+		scoreCardArrayList.add(new Bahn("Bahn3", 363, 4));
+		scoreCardArrayList.add(new Bahn("Bahn4", 458, 5));
+		scoreCardArrayList.add(new Bahn("Bahn5", 140, 3));
+		scoreCardArrayList.add(new Bahn("Bahn6", 455, 5));
+		scoreCardArrayList.add(new Bahn("Bahn7", 370, 4));
+		scoreCardArrayList.add(new Bahn("Bahn8", 99, 3));
+		scoreCardArrayList.add(new Bahn("Bahn9", 360, 4));
+
+		// Loop through each hole and get user input
 		for (Bahn bahn : scoreCardArrayList) {
-			System.out.println(bahn.toString());
-		}
-		
-		for (int i = 0; i < 9; i++) {
 			System.out.println("----------------------------------------------------------------");
-			System.out.println("Name der Bahn: " + scoreCardArrayList.get(i).getName());
-			System.out.println("Länge der Bahn: " + scoreCardArrayList.get(i).getBahnLaenge());
-			System.out.println("Bahn Par ist: " + scoreCardArrayList.get(i).getPar());
-			System.out.println("Willkommen auf Bahn " + (i + 1) + " --------------------");
-			System.out.println("");
-			
-			if (scoreCardArrayList.get(i).getPar() != 3) {
-				scoreCardArrayList.get(i).setFiR(Tools.getBooleanFromUser("Hast du das Fairway getroffen? (true or false): "));
-				System.out.println("Deine Fairwaytreffer Prozentzahl liegt bei: " + Bahn.getFiRPerc() + "%");
+			System.out.println("Name der Bahn: " + bahn.getName());
+			System.out.println("Länge der Bahn: " + bahn.getBahnLaenge());
+			System.out.println("Bahn Par ist: " + bahn.getPar());
+			System.out.println("Willkommen auf " + bahn.getName());
+
+			if (bahn.getPar() != 3) {
+				bahn.setFiR(Tools.getBooleanFromUser("Hast du das Fairway getroffen? (true or false): "));
+				System.out.println("Deine Fairway Treffer Prozentzahl liegt bei: " + Bahn.getFiRPerc() + "%");
 			}
-			
-		
-			scoreCardArrayList.get(i).hadGiR(Tools.getBooleanFromUser("Hast du das Grün in regulation getroffen? (true or false): "));
+
+
+			bahn.hadGiR(Tools.getBooleanFromUser("Hast du das Grün in regulation getroffen? (true or false): "));
 			System.out.println("Deine Grüntreffer Prozentzahl liegt bei: " + Bahn.getGiRPerc() + "%");
-			
-			if (!scoreCardArrayList.get(i).getGiR()) {
-			
-				scoreCardArrayList.get(i).setHadUpAndDown(Tools.getBooleanFromUser("Hattest du ein up and down? (true or false): "));
-				
-				scoreCardArrayList.get(i).setHadBunkerShot(Tools.getBooleanFromUser("War es ein up and down Versuch aus dem Bunker? (true or false): "));
-				if (scoreCardArrayList.get(i).getHadBunkerShot()) {
-					scoreCardArrayList.get(i).hadBunkerShot(Tools.getBooleanFromUser("Hast du das Bunker up and down gemacht? (true or false): "));
+
+			if (!bahn.getGiR()) {
+
+				bahn.setHadUpAndDown(Tools.getBooleanFromUser("Hattest du ein up and down? (true or false): "));
+
+				bahn.setHadBunkerShot(Tools.getBooleanFromUser("War es ein up and down Versuch aus dem Bunker? (true or false): "));
+				if (bahn.getHadBunkerShot()) {
+					bahn.hadBunkerShot(Tools.getBooleanFromUser("Hast du das Bunker up and down gemacht? (true or false): "));
 					System.out.println("Deine Bunker Up and Down Prozentzahl liegt bei: " + Bahn.getBunkerPerc() + "%");
 				}
-					
-				if (scoreCardArrayList.get(i).getHadUpAndDown() & !scoreCardArrayList.get(i).getHadBunkerShot()) {
-						scoreCardArrayList.get(i).hadUpAndDown(Tools.getBooleanFromUser("Hast du das up and down gemacht? (true or false): "));
-						System.out.println("Deine Up and Down Prozentzahl liegt bei: " + Bahn.getUpAndDownPerc() + "%");
+
+				if (bahn.getHadUpAndDown() & !bahn.getHadBunkerShot()) {
+					bahn.hadUpAndDown(Tools.getBooleanFromUser("Hast du das up and down gemacht? (true or false): "));
+					System.out.println("Deine Up and Down Prozentzahl liegt bei: " + Bahn.getUpAndDownPerc() + "%");
 				}
 			}
-			
+
 			Bahn.setPuttCount(Tools.getIntegerFromUser("Wie viele Putts hast du gemacht?"));
 			System.out.println("Du hast bisher " + Bahn.getPuttCount() + " Putts gemacht");
-			scoreCardArrayList.get(i).setErgebnis(Tools.getIntegerFromUser("Was hast du gespielt?"));
-			Bahn.setErgebnisToPar(scoreCardArrayList.get(i).getPar(), scoreCardArrayList.get(i).getErgebnis());
-			
-			if (scoreCardArrayList.get(i).getErgebnisToPar() > 0)
-				System.out.println("Du liegst " + scoreCardArrayList.get(i).getErgebnisToPar() + " über Par");
-			else if (scoreCardArrayList.get(i).getErgebnisToPar() < 0)
-				System.out.println("Du liegst " + scoreCardArrayList.get(i).getErgebnisToPar() + " unter Par");
-			else if (scoreCardArrayList.get(i).getErgebnisToPar() == 0)
+			bahn.setErgebnis(Tools.getIntegerFromUser("Was hast du gespielt?"));
+			Bahn.setErgebnisToPar(bahn.getPar(), bahn.getErgebnis());
+			// Calculate and display result relative to par
+			int ergebnisToPar = bahn.getErgebnis() - bahn.getPar();
+			if (ergebnisToPar > 0) {
+				System.out.println("Du liegst " + ergebnisToPar + " über Par");
+			} else if (ergebnisToPar < 0) {
+				System.out.println("Du liegst " + ergebnisToPar + " unter Par");
+			} else {
 				System.out.println("Du liegst even Par!");
-			
-			System.out.println("paruntilnow: " + Bahn.getParUntilNow());
-			System.out.println("getErgebnisUntilNow: " + Bahn.getErgebnisUntilNow());
+			}
+
 			System.out.println("----------------------------------------------------------------");
 		}
-		
-		//Gesamt:
+
+		// Summary of the entire course
+		int totalPar = 0;
+		int totalErgebnis = 0;
+		for (Bahn bahn : scoreCardArrayList) {
+			totalPar += bahn.getPar();
+			totalErgebnis += bahn.getErgebnis();
+		}
+
 		System.out.println("---------------------------------------------------------------------------");
-		System.out.println("Der C Kurs hat eine Länge von " + scoreCardArrayList.get(9).getBahnLaenge() 
-				+ " und hat ein Par von " + scoreCardArrayList.get(9).getPar() + " Schlägen.");
-		System.out.println("Deine Fairwaytrefferquote liegt bei " + Bahn.getFiRPerc() + "%.");
-		System.out.println("Deine Grüntrefferquote liegt bei " + Bahn.getGiRPerc() + "%.");
-		System.out.println("Deine Anzahl an Putts liegt bei " + Bahn.getPuttCount() + ".");
-		
-		if (Bahn.getErgebnisUntilNow() - bahnGesamt.getPar() > 0)
-			System.out.println("Dein Ergebnis zu Par ist +" + (Bahn.getErgebnisUntilNow() - bahnGesamt.getPar()));
-		else if (Bahn.getErgebnisUntilNow() - bahnGesamt.getPar() < 0) 
-			System.out.println("Dein Ergebnis zu Par ist -" + (Bahn.getErgebnisUntilNow() - bahnGesamt.getPar()));
-		else 
-			System.out.println("Dein Ergebnis zu Par ist even Par");
-		
+		System.out.println("Gesamt Par des Kurses: " + totalPar);
+		System.out.println("Gesamtes Ergebnis: " + totalErgebnis);
+		int resultToPar = totalErgebnis - totalPar;
+		if (resultToPar > 0) {
+			System.out.println("Gesamt Ergebnis zu Par: +" + resultToPar);
+		} else if (resultToPar < 0) {
+			System.out.println("Gesamt Ergebnis zu Par: -" + resultToPar);
+		} else {
+			System.out.println("Gesamt Ergebnis zu Par: even Par");
+		}
+
 		scan.close();
 	}
-
 }
