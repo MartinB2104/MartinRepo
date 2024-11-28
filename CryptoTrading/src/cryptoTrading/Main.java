@@ -31,8 +31,7 @@ public class Main {
 
 		boolean wantsToSeeStatistics = Tools.getBooleanFromUser("Möchtest du deine Statistiken sehen? (true or false): ");
 		if (wantsToSeeStatistics) {
-			// Hier könnte Statistik-Logik implementiert werden
-			System.out.println("Statistiken sind noch nicht implementiert.");
+			calculateAndPrintStatistics();
 		}
 	}
 
@@ -87,5 +86,61 @@ public class Main {
 		System.out.println(trade);
 
 		return trade;
+	}
+	private static void calculateAndPrintStatistics() {
+		if (tradeArrayList.isEmpty()) {
+			System.out.println("Keine Trades vorhanden, um Statistiken zu berechnen.");
+			return;
+		}
+
+		int totalTrades = tradeArrayList.size();
+		int winTrades = 0;
+		int lossTrades = 0;
+		double totalProfitLoss = 0.0;
+		double totalROE = 0.0;
+		double longProfitLoss = 0.0;
+		double shortProfitLoss = 0.0;
+		int longTrades = 0;
+		int shortTrades = 0;
+
+		// Statistiken berechnen
+		for (Trade trade : tradeArrayList) {
+			if (trade.getWin()) {
+				winTrades++;
+			} else {
+				lossTrades++;
+			}
+
+			totalProfitLoss += trade.getPAndL();
+			totalROE += trade.getROE();
+
+			if (trade.getIsLong()) {
+				longProfitLoss += trade.getPAndL();
+				longTrades++;
+			} else {
+				shortProfitLoss += trade.getPAndL();
+				shortTrades++;
+			}
+		}
+
+		// Durchschnittswerte
+		double avgProfitLoss = totalProfitLoss / totalTrades;
+		double successRate = (winTrades / (double) totalTrades) * 100;
+		double avgROE = totalROE / totalTrades;
+		double avgLongProfitLoss = longTrades > 0 ? longProfitLoss / longTrades : 0.0;
+		double avgShortProfitLoss = shortTrades > 0 ? shortProfitLoss / shortTrades : 0.0;
+
+		// Ergebnisse ausgeben
+		System.out.println("------- Gesamtstatistiken -------");
+		System.out.println("Anzahl der Trades: " + totalTrades);
+		System.out.println("Gewinn Trades: " + winTrades);
+		System.out.println("Verlust Trades: " + lossTrades);
+		System.out.printf("Gesamter Gewinn/Verlust: %.2f $%n", totalProfitLoss);
+		System.out.printf("Durchschnittlicher Gewinn/Verlust: %.2f $%n", avgProfitLoss);
+		System.out.printf("Erfolgsquote: %.2f %% %n", successRate);
+		System.out.printf("Durchschnittlicher ROE: %.2f %% %n", avgROE);
+		System.out.printf("Durchschnittlicher Gewinn/Verlust (Long): %.2f $%n", avgLongProfitLoss);
+		System.out.printf("Durchschnittlicher Gewinn/Verlust (Short): %.2f $%n", avgShortProfitLoss);
+		System.out.println("----------------------------------");
 	}
 }
