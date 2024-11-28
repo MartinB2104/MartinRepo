@@ -80,13 +80,13 @@ public class Trade {
 	@Override
 	public String toString() {
 		return "Trade{" +
-				"coinName='" + coinName + '\'' +
-				", buyPrice=" + buyPrice +
-				", marge=" + marge +
-				", pAndL=" + pAndL +
-				", rOE=" + rOE +
-				", isWin=" + isWin +
-				", isLong=" + isLong +
+				"Coin Name: '" + coinName + '\'' +
+				", Kaufpreis: " + buyPrice +
+				", Marge: " + marge +
+				", Profit and Loss: " + pAndL +
+				", return on investment: " + rOE +
+				", Trade gewonnen: " + isWin +
+				", War eine Langposition: " + isLong +
 				'}';
 	}
 }
