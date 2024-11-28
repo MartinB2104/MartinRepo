@@ -6,8 +6,8 @@ public class Tools {
 	private static Scanner scan = new Scanner(System.in);
 
     public static boolean getBooleanFromUser(String frage) {
-        Boolean error = true;
-        Boolean answer = false;
+        boolean error = true;
+        boolean answer = false;
         do {
             try {
                 System.out.println(frage);
@@ -24,9 +24,9 @@ public class Tools {
         return answer;
     }
 
-    public static Integer getIntegerFromUser(String frage) {
-        Boolean error = true;
-        Integer answer = -1;
+    public static int getIntegerFromUser(String frage) {
+        boolean error = true;
+        int answer = -1;
         do {
             try {
                 System.out.println(frage);
