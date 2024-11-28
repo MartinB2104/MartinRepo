@@ -1,1 +1,1 @@
-[ ]
+[{"coinName":"Bitcoin","buyPrice":92000.0,"marge":100.0,"pAndL":10.0,"rOE":10.0,"isWin":true,"isLong":true},{"coinName":"Solana","buyPrice":250.0,"marge":100.0,"pAndL":10.0,"rOE":10.0,"isWin":true,"isLong":true},{"coinName":"XRP","buyPrice":50.0,"marge":100.0,"pAndL":10.0,"rOE":10.0,"isWin":true,"isLong":true}]

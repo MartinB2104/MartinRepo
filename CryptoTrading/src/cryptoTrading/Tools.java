@@ -45,11 +45,11 @@ package cryptoTrading;
 	    
 	    public static String getStringFromUser(String frage) {
 	        Boolean error = true;
-	        String answer = " ";
+	        String answer = "";
 	        do {
 	            try {
 	                System.out.println(frage);
-	                answer = scan.nextLine();
+	                answer = scan.next();
 	                error = false;
 	            }
 	            catch (Exception e) {

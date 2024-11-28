@@ -76,5 +76,17 @@ public class Trade {
 	public void setWin(boolean isWin) {
 		this.isWin = isWin;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Trade{" +
+				"coinName='" + coinName + '\'' +
+				", buyPrice=" + buyPrice +
+				", marge=" + marge +
+				", pAndL=" + pAndL +
+				", rOE=" + rOE +
+				", isWin=" + isWin +
+				", isLong=" + isLong +
+				'}';
+	}
 }
