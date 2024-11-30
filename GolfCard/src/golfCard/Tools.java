@@ -42,5 +42,4 @@ public class Tools {
         } while (error);
         return answer;
     }
-	
 }
