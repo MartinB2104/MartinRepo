@@ -7,9 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="your-project-name" />
-        <module name="CryptoTrading" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="17" />
   </component>
 </project>
