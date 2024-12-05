@@ -1,0 +1,110 @@
+[
+  {
+    "name": "Bahn1",
+    "bahnLaenge": 495,
+    "par": 5,
+    "ergebnis": 5,
+    "hadUpAndDown": false,
+    "upAndDownMade": false,
+    "hadBunkerShot": false,
+    "bunkerShotMade": false,
+    "FiR": true,
+    "GiR": true
+  },
+  {
+    "name": "Bahn2",
+    "bahnLaenge": 159,
+    "par": 3,
+    "ergebnis": 3,
+    "hadUpAndDown": false,
+    "upAndDownMade": false,
+    "hadBunkerShot": false,
+    "bunkerShotMade": false,
+    "FiR": false,
+    "GiR": true
+  },
+  {
+    "name": "Bahn3",
+    "bahnLaenge": 363,
+    "par": 4,
+    "ergebnis": 4,
+    "hadUpAndDown": false,
+    "upAndDownMade": false,
+    "hadBunkerShot": false,
+    "bunkerShotMade": false,
+    "FiR": true,
+    "GiR": true
+  },
+  {
+    "name": "Bahn4",
+    "bahnLaenge": 458,
+    "par": 5,
+    "ergebnis": 5,
+    "hadUpAndDown": false,
+    "upAndDownMade": false,
+    "hadBunkerShot": false,
+    "bunkerShotMade": false,
+    "FiR": true,
+    "GiR": true
+  },
+  {
+    "name": "Bahn5",
+    "bahnLaenge": 140,
+    "par": 3,
+    "ergebnis": 3,
+    "hadUpAndDown": false,
+    "upAndDownMade": false,
+    "hadBunkerShot": false,
+    "bunkerShotMade": false,
+    "FiR": false,
+    "GiR": true
+  },
+  {
+    "name": "Bahn6",
+    "bahnLaenge": 455,
+    "par": 5,
+    "ergebnis": 8,
+    "hadUpAndDown": false,
+    "upAndDownMade": false,
+    "hadBunkerShot": false,
+    "bunkerShotMade": false,
+    "FiR": true,
+    "GiR": true
+  },
+  {
+    "name": "Bahn7",
+    "bahnLaenge": 370,
+    "par": 4,
+    "ergebnis": 4,
+    "hadUpAndDown": false,
+    "upAndDownMade": false,
+    "hadBunkerShot": false,
+    "bunkerShotMade": false,
+    "FiR": true,
+    "GiR": true
+  },
+  {
+    "name": "Bahn8",
+    "bahnLaenge": 99,
+    "par": 3,
+    "ergebnis": 3,
+    "hadUpAndDown": false,
+    "upAndDownMade": false,
+    "hadBunkerShot": false,
+    "bunkerShotMade": false,
+    "FiR": false,
+    "GiR": true
+  },
+  {
+    "name": "Bahn9",
+    "bahnLaenge": 360,
+    "par": 4,
+    "ergebnis": 4,
+    "hadUpAndDown": false,
+    "upAndDownMade": false,
+    "hadBunkerShot": false,
+    "bunkerShotMade": false,
+    "FiR": true,
+    "GiR": true
+  }
+]

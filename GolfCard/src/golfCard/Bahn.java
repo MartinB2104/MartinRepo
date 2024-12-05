@@ -239,6 +239,7 @@ public class Bahn{
 	}
 
 	public String toString() {
-		return name + ", " + bahnLaenge + ", " + par;
+		return name + ", Bahnlänge: " + bahnLaenge + ", Par: " + par + ", Ergebnis: " + ergebnis + ", hatte Up and Down?: " + hadUpAndDown + ", Grüntreffer?: " + GiR
+				+ ", Fairwaytreffer?: " + FiR + ", Bunkerschlag?: " + hadBunkerShot + ", Bunkerschlag gemacht?: " + bunkerShotMade;
 	}
 }

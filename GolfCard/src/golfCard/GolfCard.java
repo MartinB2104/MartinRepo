@@ -56,6 +56,9 @@ public class GolfCard {
 		//Wenn User will, Runden einsehen:
 		if (Tools.getBooleanFromUser("Möchtest du deine Runden Einträge sehen? (true or false): ")) {
 			loadScoreCardFromFile();
+			for (Bahn bahn : scoreCardArrayList) {
+				System.out.println(bahn.toString());
+			}
 		}
 		//Json Datei Runde speichern
 		if (Tools.getBooleanFromUser("Möchtest du die Runde speichern? (true or false): ")) {
